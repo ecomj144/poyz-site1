@@ -1230,6 +1230,66 @@ details.qa.num .a{padding-left:68px}
 @media (hover:none){.ec3-add{opacity:1;transform:none}}
 @media (max-width:640px){.car3 .car-head{flex-direction:column;align-items:flex-start;gap:10px}.marq{margin-inline:calc(var(--gutter) * -1)}.marq-track{--w:44vw;--gap:12px}}
 @media (prefers-reduced-motion:reduce){.marq{overflow-x:auto;-webkit-mask-image:none;mask-image:none}.marq-track{animation:none}.marq-track>[aria-hidden="true"]{display:none}}
+/* quiz v3 — split card with live match */
+.qz{display:grid;grid-template-columns:1.08fr .92fr;border-radius:32px;overflow:hidden;background:var(--panel);border:1px solid var(--line);box-shadow:0 1px 2px rgba(74,50,62,.04),0 40px 90px -50px rgba(74,50,62,.38)}
+.qz-main{padding:clamp(28px,4.2vw,64px)}
+.qz-main .h2{margin-top:16px}
+.qz #quiz{margin-top:30px}
+.qz #quiz .qprog{display:flex;gap:6px;max-width:none;margin:0 0 18px}
+.qz .qprog i{flex:1;height:4px;border-radius:4px;background:var(--panel-3)}
+.qz .qprog i.on{background:var(--blue)}
+.qz .qstep{text-align:left}
+.qz .qq{margin:6px 0 0;font-size:clamp(22px,2vw,28px)}
+.qz .qtiles{grid-template-columns:1fr;gap:10px;margin-top:20px}
+.qz .qtile{flex-direction:row;align-items:center;justify-content:flex-start;gap:16px;min-height:0;padding:14px 16px;border-radius:16px;background:var(--bg)}
+.qz .qtile i{width:46px;height:46px;border-radius:12px;flex:none}
+.qz .qtile i svg{width:22px;height:22px}
+.qz .qtile .qt{flex:1}
+.qz .qtile b{font-size:16.5px}
+.qz .qtile small{font-size:13.5px}
+.qz .qtile .qn{position:static;transform:none;width:28px;height:28px;border-radius:50%;border:1px solid var(--line-2);display:grid;place-items:center;font-size:10.5px;flex:none;order:3;transition:background .2s,color .2s,border-color .2s}
+.qz .qtile:hover{transform:translateX(4px);background:#fff}
+.qz .qtile:hover .qn{background:var(--blue);border-color:var(--blue);color:#fff}
+.qz .qback{margin-top:16px}
+.qz .qresult{display:block;margin-top:4px}
+.qz .qresult>.plinth{display:none}
+.qz .qresult .h2{font-size:clamp(30px,3vw,42px)}
+/* live match panel — one calm stage that matches the product photography */
+.qz-vis{position:relative;padding:12px;background:var(--panel)}
+.qzv-stage{position:relative;height:100%;min-height:520px;border-radius:24px;overflow:hidden;background:#EDE4DB}
+.qzv-img{position:absolute;inset:0 0 148px 0;background:#EDE4DB}
+.qzv-img>img{object-fit:contain!important;padding:7% 8% 4%}
+.qzv-img>svg{width:78%}
+.qzv-img.swap>*{animation:qzswap .6s cubic-bezier(.2,.7,.2,1)}
+@keyframes qzswap{from{opacity:0;transform:translateY(12px) scale(.97)}to{opacity:1;transform:none}}
+.qzv-live{position:absolute;left:16px;top:16px;z-index:2;display:inline-flex;align-items:center;gap:8px;font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--fg);padding:7px 12px 7px 10px;border-radius:999px;background:rgba(255,253,251,.9);box-shadow:0 6px 16px -10px rgba(74,50,62,.4)}
+.qzv-live i{width:7px;height:7px;border-radius:50%;background:var(--blue);box-shadow:0 0 0 4px rgba(85,99,230,.18);animation:qzpulse 1.8s ease-in-out infinite}
+@keyframes qzpulse{50%{box-shadow:0 0 0 7px rgba(85,99,230,0)}}
+.qzv-panel{position:absolute;left:12px;right:12px;bottom:12px;z-index:2;padding:16px 18px 18px;border-radius:18px;background:rgba(255,253,251,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 18px 40px -26px rgba(74,50,62,.45)}
+.qzv-name{display:flex;justify-content:space-between;align-items:flex-end;gap:12px}
+.qzv-name .mono{display:block;font-size:10px;color:var(--blue-tx)}
+.qzv-name b{display:block;margin-top:3px;font-size:18px;font-weight:800;letter-spacing:-.02em}
+.qzv-price{font-weight:800;font-size:17px}
+.qzv-meter{display:grid;gap:8px;margin-top:14px;padding-top:14px;border-top:1px solid var(--line)}
+.qzv-row{display:grid;grid-template-columns:54px 1fr 38px;align-items:center;gap:12px;font-size:13px;font-weight:700;color:var(--dim);transition:color .3s}
+.qzv-row.on{color:var(--fg)}
+.qzv-row i{height:6px;border-radius:6px;background:var(--panel-3);overflow:hidden}
+.qzv-row i b{display:block;height:100%;border-radius:6px;background:#C9C3EE;transition:width .7s cubic-bezier(.2,.7,.2,1)}
+.qzv-row.on i b{background:var(--blue)}
+.qzv-row em{font-style:normal;text-align:right;font-variant-numeric:tabular-nums}
+/* question side polish */
+.qz-main{display:flex;flex-direction:column;justify-content:center}
+.qz #quiz{margin:30px 0 0;width:100%;max-width:none}
+.qz .qtile{background:#FBF8F5;border-color:var(--line-2)}
+.qz .qtile:hover{background:#fff;border-color:var(--blue);box-shadow:0 14px 30px -20px rgba(85,99,230,.55)}
+.qz .qtile i{background:var(--lilac)}
+.qz #quiz .qprog i{background:var(--panel-3)}
+.qz #quiz .qprog i.on{background:var(--blue)}
+@media (max-width:900px){.qz{grid-template-columns:minmax(0,1fr)}.qz-vis{padding:0 12px 12px}.qzv-stage{min-height:0;height:auto;display:flex;flex-direction:column}.qzv-img{position:relative;inset:auto;aspect-ratio:16/10}.qzv-panel{position:relative;left:auto;right:auto;bottom:auto;margin:0 10px 10px;border-radius:16px}}
+@media (max-width:640px){.qz{border-radius:24px}.qz-main{padding:28px 18px 22px}.qz-vis{padding:0 10px 10px}.qz .qtile{padding:12px 12px;gap:12px}.qz .qtile i{width:40px;height:40px}.qzv-name b{font-size:17px}}
+@media (prefers-reduced-motion:reduce){.qzv-live i,.qzv-img.swap>*{animation:none}}
+.band-fade:has(+ .qz-sec){padding-bottom:clamp(56px,6vw,96px)}
+.band-fade + .qz-sec{padding-top:clamp(24px,3vw,48px)}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
@@ -1730,6 +1790,10 @@ PRODUCTS.fold.anatomy = { image: 0, ratio: '1072 / 1074', spots: [[10.5, 67], [3
 
 PRODUCTS.set.detailImg = 1; // flat lay of every piece
 PRODUCTS.board.detailImage = (window.POYZ_IMG || {}).boardDetail || ''; // lifestyle shot for the What you get section
+
+/* extra shop sections a product also appears in */
+PRODUCTS.board.also = ['reformers'];
+PRODUCTS.set.also = ['boards'];
 /* ---------- extra icons ---------- */
 Object.assign(ICON, {
   fold: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 15h8l2-4h8"/><path d="M3 19h18"/><path d="M13 11l-2 4"/></svg>',
@@ -1898,9 +1962,13 @@ function vHome() {
     : `<div class="stage-frame"><div class="plinth"><div class="art fold-art" id="fold-art" data-state="open">${svg(ART.fold('#EEE8DD', 'both'), 'The Poyz Fold, open or folded', HERO_VB)}</div></div></div>`}
 </div></section>
 
-<section class="section"><div class="wrap"><div class="panel panel-glow qpanel" id="quiz-sec">
-  <div class="qhead"><p class="mono eyebrow eyebrow-c">Find your Poyz</p><h2 class="h2">Three questions. <em>One perfect match.</em></h2></div>
-  <div id="quiz"></div>
+<section class="section qz-sec"><div class="wrap"><div class="qz" id="quiz-sec">
+  <div class="qz-main">
+    <p class="mono eyebrow">Find your Poyz</p>
+    <h2 class="h2">Three questions.<br><em>One perfect match.</em></h2>
+    <div id="quiz"></div>
+  </div>
+  <aside class="qz-vis" id="qz-vis" aria-live="polite"></aside>
 </div></div></section>
 
 ${CONFIG.features.method ? `<section class="section tight"><div class="wrap">
@@ -2020,10 +2088,11 @@ function vReviews(list, title, band) {
 
 /* ---------- shop ---------- */
 function vShop(cat = 'all') {
-  const ids = ['fold', 'board', 'set', 'studio', 'mat', 'ring', 'bands', 'socks'].filter(id => cat === 'all' || PRODUCTS[id].cat === cat);
+  const order = { reformers: ['board', 'fold', 'studio'], boards: ['board', 'set'] }[cat] || ['fold', 'board', 'set', 'studio', 'mat', 'ring', 'bands', 'socks'];
+  const ids = order.filter(id => cat === 'all' || PRODUCTS[id].cat === cat || (PRODUCTS[id].also || []).includes(cat));
   const title = { all: 'Shop <em>all.</em>', reformers: 'Reform<em>ers.</em>', boards: 'Bo<em>ards.</em>', essentials: 'Essen<em>tials.</em>', bundles: 'Bun<em>dles.</em>' };
   const plain = { all: 'Shop <em>all.</em>', reformers: '<em>Reformers.</em>', boards: '<em>Boards.</em>', essentials: '<em>Essentials.</em>', bundles: '<em>Bundles.</em>' }[cat];
-  const sub = { all: 'Equipment and essentials for a complete practice at home.', reformers: 'A real carriage and adjustable resistance, folding or full size.', boards: 'Reformer-style training that stores flat.', essentials: 'The props every class uses, sized and styled to match.', bundles: 'Everything you need, in one box, for less.' }[cat];
+  const sub = { all: 'Equipment and essentials for a complete practice at home.', reformers: 'Every way to train reformer-style at home, from the Board to the full-size Studio.', boards: 'Reformer-style training that stores flat, on its own or as the Full Set.', essentials: 'The props every class uses, sized and styled to match.', bundles: 'Everything you need, in one box, for less.' }[cat];
   return `<div class="wrap"><div class="coll-head"><div><p class="mono eyebrow">Shop</p><h1 class="h1" style="font-size:clamp(46px,5vw,80px)">${plain}</h1><p class="lede">${sub}</p></div><nav class="filters" aria-label="Categories">${CATS.map(([k, l]) => `<a class="chip-f" href="#/shop${k === 'all' ? '' : '/' + k}" ${k === cat ? 'aria-current="page"' : ''}>${l}</a>`).join('')}</nav></div>
   <div class="pgrid" style="padding-bottom:var(--sect)">${ids.map(pcard).join('')}</div></div>${strip()}<div style="height:var(--sect)"></div>`;
 }
@@ -2239,8 +2308,29 @@ const WHY = {
   fold: 'A real gliding carriage and adjustable resistance, hinged so it folds and stands in a closet. Reformer classes at home, without losing the room.',
   studio: 'A full-size reformer for a room of its own. The complete classical repertoire, built to be used daily for years.'
 };
+function renderQuizVis() {
+  const vis = $('#qz-vis'); if (!vis) return;
+  const ids = ['board', 'fold', 'studio'], sc = quiz.score, tot = ids.reduce((s, k) => s + sc[k], 0);
+  const done = quiz.step >= QUIZ.length;
+  const lead = tot ? ids.slice().sort((a, b) => sc[b] - sc[a] || (a === 'fold' ? -1 : b === 'fold' ? 1 : 0))[0] : null;
+  const show = lead || 'fold', p = PRODUCTS[show];
+  const pct = k => tot ? Math.round(sc[k] / tot * 100) : 0;
+  const prevLead = vis.dataset.lead, prev = JSON.parse(vis.dataset.prev || '{}');
+  vis.dataset.prev = JSON.stringify(Object.fromEntries(ids.map(k => [k, tot ? pct(k) : 0])));
+  vis.dataset.lead = show;
+  vis.innerHTML = `<div class="qzv-stage">
+    <div class="qzv-img plinth center${prevLead && prevLead !== show ? ' swap' : ''}">${primaryArt(show)}</div>
+    <span class="qzv-live"><i></i>${done ? 'Your match' : tot ? 'Live match' : 'Updates as you answer'}</span>
+    <div class="qzv-panel">
+      <div class="qzv-name"><div><span class="mono">${tot ? (done ? 'Best for you' : 'Leading') : 'Most popular'}</span><b>${p.name}</b></div><span class="qzv-price">${money(p.price)}</span></div>
+      <div class="qzv-meter">${ids.map(k => `<div class="qzv-row${k === lead ? ' on' : ''}"><span>${shortName(PRODUCTS[k]).replace('Poyz ', '')}</span><i><b data-w="${tot ? pct(k) : 0}" style="width:${prev[k] || 0}%"></b></i><em>${tot ? pct(k) + '%' : '—'}</em></div>`).join('')}</div>
+    </div>
+  </div>`;
+  requestAnimationFrame(() => requestAnimationFrame(() => $$('.qzv-row i b', vis).forEach(b => { b.style.width = b.dataset.w + '%'; })));
+}
 function renderQuiz() {
   const el = $('#quiz'); if (!el) return;
+  setTimeout(renderQuizVis, 0);
   if (quiz.step < QUIZ.length) {
     const [q, opts] = QUIZ[quiz.step];
     el.innerHTML = `<div class="qprog" aria-hidden="true">${QUIZ.map((_, i) => `<i class="${i <= quiz.step ? 'on' : ''}"></i>`).join('')}</div><div class="qstep"><p class="mono">Question ${quiz.step + 1} of ${QUIZ.length}</p><h3 class="h3 qq">${q}</h3><div class="qtiles">${opts.map((o, i) => `<button class="qtile" data-act="qa" data-i="${i}"><span class="qn mono">${'ABC'[i]}</span><i>${ICON[o[2]] || ''}</i><span class="qt"><b>${o[0]}</b><small>${o[1]}</small></span></button>`).join('')}</div>${quiz.step ? '<button class="qback" data-act="qback">Back</button>' : ''}</div>`;
